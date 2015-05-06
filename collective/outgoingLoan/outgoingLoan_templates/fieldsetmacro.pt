@@ -1,0 +1,78 @@
+<!-- Secondary fieldsets -->
+  
+<div metal:define-macro="test">
+
+  <tal:loan_request tal:condition='python: fieldset_text == "loan_request"'
+    tal:define='widgets group/widgets'>
+    <!-- Loan requests -->
+    <div class="row no-padding">
+        <h2 class="page-header" i18n:translate="">General</h2>
+
+        <div class="form-horizontal">
+          <tal:widget tal:replace="structure widgets/loanRequest_general_loanNumber/@@ploneform-render-widget"/>
+          <tal:widget tal:replace="structure widgets/loanRequest_general_requester/@@ploneform-render-widget"/>
+          <tal:widget tal:replace="structure widgets/loanRequest_general_contact/@@ploneform-render-widget"/>
+        </div>
+
+        <h2 class="page-header" i18n:translate="">Internal coordination</h2>
+
+        <div class="form-horizontal">
+          <tal:widget tal:replace="structure widgets/loanRequest_internalCoordination_coordinator/@@ploneform-render-widget"/>
+        </div>
+
+        <div class="form-horizontal gridfield show-label hide-th">
+         <tal:widget tal:replace="structure widgets/loanRequest_internalCoordination_administrConcerned/@@ploneform-render-widget"/>
+       </div>
+
+        <h2 class="page-header" i18n:translate="">Request details</h2>
+
+        <div class="form-horizontal">
+          <div class="col-sm-12 col-md-6 col-lg-6 padding-right div-50">
+            <tal:widget tal:replace="structure widgets/loanRequest_requestDetails_periodFrom/@@ploneform-render-widget"/>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-6 div-20-80 label-right">
+            <tal:widget tal:replace="structure widgets/loanRequest_requestDetails_to/@@ploneform-render-widget"/>
+          </div>
+
+          <tal:widget tal:replace="structure widgets/loanRequest_requestDetails_reason/@@ploneform-render-widget"/>
+          <tal:widget tal:replace="structure widgets/loanRequest_requestDetails_exhibition/@@ploneform-render-widget"/>
+        </div>
+
+        <h2 class="page-header" i18n:translate="">Request letter</h2>
+
+        <div class="form-horizontal">
+          <div class="col-sm-12 col-md-6 col-lg-6 padding-right div-50">
+            <tal:widget tal:replace="structure widgets/loanRequest_requestLetter_date/@@ploneform-render-widget"/>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-6 div-20-80 label-right">
+            <tal:widget tal:replace="structure widgets/loanRequest_requestLetter_digRef/@@ploneform-render-widget"/>
+          </div>
+        </div>
+
+        <h2 class="page-header" i18n:translate="">Request confirmation</h2>
+
+        <div class="form-horizontal">
+          <tal:widget tal:replace="structure widgets/loanRequest_requestConfirmation_template/@@ploneform-render-widget"/>
+
+          <div class="col-sm-12 col-md-6 col-lg-6 padding-right div-50">
+            <tal:widget tal:replace="structure widgets/loanRequest_requestConfirmation_date/@@ploneform-render-widget"/>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-6 div-20-80 label-right">
+            <tal:widget tal:replace="structure widgets/loanRequest_requestConfirmation_digRef/@@ploneform-render-widget"/>
+          </div>
+        </div>
+    </div>
+  </tal:loan_request>
+
+  <tal:documentation tal:condition='python: fieldset_text == "documentation"'
+    tal:define='widgets group/widgets'>
+    <!-- Documentation -->
+    <div class="row no-padding">
+        <h2 class="page-header" i18n:translate="">Documentation</h2>
+
+        <div class="form-horizontal gridfield">
+          <tal:widget tal:replace="structure widgets/documentation_documentation/@@ploneform-render-widget"/>
+        </div>
+    </div>
+  </tal:documentation>
+</div>
