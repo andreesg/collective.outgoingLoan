@@ -64,15 +64,15 @@
     </div>
   </tal:loan_request>
 
-  <tal:documentation tal:condition='python: fieldset_text == "documentation"'
+  <tal:objects tal:condition='python: fieldset_text == "objects"'
     tal:define='widgets group/widgets'>
-    <!-- Documentation -->
+    <!-- Objects -->
     <div class="row no-padding">
-        <h2 class="page-header" i18n:translate="">Documentation</h2>
+        <h2 class="page-header" i18n:translate="">Object</h2>
 
         <div class="form-horizontal gridfield">
-          <tal:widget tal:replace="structure widgets/documentation_documentation/@@ploneform-render-widget"/>
+          <tal:widget tal:replace="structure widgets/objects_object/@@ploneform-render-widget"/>
         </div>
     </div>
-  </tal:documentation>
+  </tal:objects>
 </div>

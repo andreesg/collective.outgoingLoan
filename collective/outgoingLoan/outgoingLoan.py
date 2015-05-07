@@ -174,18 +174,35 @@ class IOutgoingLoan(form.Schema):
     )
     dexteritytextindexer.searchable('loanRequest_requestConfirmation_digRef')
 
-    # # # # # # # # # #
-    # Documentation   #
-    # # # # # # # # # #
-    model.fieldset('documentation', label=_(u'Documentation'), 
-        fields=['documentation_documentation']
+    # # # # # #
+    # Objects #
+    # # # # # #
+    
+    model.fieldset('objects', label=_(u'Objects'), 
+        fields=['objects_object']
     )
 
-    documentation_documentation = ListField(title=_(u'Documentation'),
-        value_type=DictRow(title=_(u'Documentation'), schema=IDocumentationDocumentation),
+    # Object
+    objects_object = ListField(title=_(u'Object'),
+        value_type=DictRow(title=_(u'Object'), schema=IObjects),
         required=False)
-    form.widget(documentation_documentation=BlockDataGridFieldFactory)
-    dexteritytextindexer.searchable('documentation_documentation')
+    form.widget(objects_object=BlockDataGridFieldFactory)
+    dexteritytextindexer.searchable('objects_object')
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

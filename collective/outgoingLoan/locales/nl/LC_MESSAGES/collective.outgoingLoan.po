@@ -1108,7 +1108,6 @@ msgstr "Tentoonstellingen"
 msgid "OutgoingLoan"
 msgstr "Tentoonstelling"
 
-
 #: ../outgoingLoan.py
 msgid "OutgoingLoan name"
 msgstr "Tentoonstellingsnaam"
@@ -1316,10 +1315,80 @@ msgstr "Sjabloon"
 msgid "Dig. ref."
 msgstr "(Dig.)ref."
 
+#: ../outgoingLoan.py
+msgid "Objects"
+msgstr "Objecten"
+
+#: ../outgoingLoan.py
+msgid "Loan title"
+msgstr "Buikleentitel"
+
+#: ../outgoingLoan.py
+msgid "Loan title"
+msgstr "Buikleentitel"
+
+#: ../outgoingLoan.py
+msgid "Authoriser (internal)"
+msgstr "Autorisator (itern)"
+
+#: ../outgoingLoan.py
+msgid "Authorisation date"
+msgstr "Autorisatiedatum"
+
+#: ../outgoingLoan.py
+msgid "Authorisation date"
+msgstr "Autorisatiedatum"
+
+#: ../outgoingLoan.py
+msgid "Authorisation date"
+msgstr "Autorisatiedatum"
+
+#: ../outgoingLoan.py
+msgid "Review request"
+msgstr "Beoordelingsverzoek"
+
+#: ../outgoingLoan.py
+msgid "Permission owner"
+msgstr "Toestemming eigenaar"
+
+#: ../outgoingLoan.py
+msgid "Request template"
+msgstr "Sjabloon verzoek"
+
+#: ../outgoingLoan.py
+msgid "Request template"
+msgstr "Sjabloon verzoek"
 
 
+#: ../outgoingLoan.py
+msgid "Permission result"
+msgstr "Toestemming uitslag"
+
+#: ../outgoingLoan.py
+msgid "Miscellaneous"
+msgstr "Overig"
+
+#: ../outgoingLoan.py
+msgid "Insurance Value"
+msgstr "Verzekeringwaarde"
+
+#: ../outgoingLoan.py
+msgid "Conditions"
+msgstr "Voorwaarden"
 
 
+#: ../outgoingLoan.py
+msgid "Currency"
+msgstr "Valuta"
+
+#: ../outgoingLoan.py
+msgid "Object"
+msgstr "Object"
+
+
+#: ../outgoingLoan.py
+msgid "German"
+msgstr "Duits"
 
 
 
