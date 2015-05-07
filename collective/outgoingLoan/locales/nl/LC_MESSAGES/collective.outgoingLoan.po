@@ -1390,6 +1390,95 @@ msgstr "Object"
 msgid "German"
 msgstr "Duits"
 
+#: ../outgoingLoan.py
+msgid "Contract"
+msgstr "Contract"
+
+#: ../outgoingLoan.py
+msgid "Contract details"
+msgstr "Contractdetails"
+
+#: ../outgoingLoan.py
+msgid "Request period from"
+msgstr "Contractperiode vanaf"
+
+#: ../outgoingLoan.py
+msgid "Conditions"
+msgstr "Voorwaarden"
+
+
+#: ../outgoingLoan.py
+msgid "Contract letter"
+msgstr "Contractbrief"
+
+#: ../outgoingLoan.py
+msgid "Signed & returned"
+msgstr "Getekend"
+
+#: ../outgoingLoan.py
+msgid "(Dig.) ref."
+msgstr "Dig. ref."
+
+#: ../outgoingLoan.py
+msgid "Condition report"
+msgstr "Conditierapport"
+
+#: ../outgoingLoan.py
+msgid "Extension"
+msgstr "Verlenging"
+
+#: ../outgoingLoan.py
+msgid "Request"
+msgstr "Verzoek"
+
+#: ../outgoingLoan.py
+msgid "New end date"
+msgstr "Nieuwe einddatum"
+
+#: ../outgoingLoan.py
+msgid "Review"
+msgstr "Beoordeling"
+
+#: ../outgoingLoan.py
+msgid "authorised"
+msgstr "goedgekeurd"
+
+#: ../outgoingLoan.py
+msgid "Result"
+msgstr "Uitslag"
+
+
+#
+# Correspondence
+#
+
+#: ../outgoingLoan.py
+msgid "Correspondence"
+msgstr "Correspondentie"
+
+#: ../outgoingLoan.py
+msgid "Other correspondence"
+msgstr "Andere correspondentie"
+
+#: ../outgoingLoan.py
+msgid "(Digital) Reference"
+msgstr "(Digitale) referentie"
+
+#: ../outgoingLoan.py
+msgid "Destination"
+msgstr "Bestemming"
+
+#: ../outgoingLoan.py
+msgid "Sender"
+msgstr "Afzender"
+
+#: ../outgoingLoan.py
+msgid "Subject"
+msgstr "Onderwerp"
+
+#: ../outgoingLoan.py
+msgid "label_date"
+msgstr "Datum"
 
 
 

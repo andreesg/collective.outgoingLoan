@@ -189,9 +189,116 @@ class IOutgoingLoan(form.Schema):
     form.widget(objects_object=BlockDataGridFieldFactory)
     dexteritytextindexer.searchable('objects_object')
 
-    
+
+    # # # # # # #
+    # Contract  #
+    # # # # # # #
+    model.fieldset('contract', label=_(u'Contract'), 
+        fields=['contract_contractDetails_requestPeriodFrom',
+                'contract_contractDetails_to', 'contract_contractDetails_conditions',
+                'contract_contractDetails_notes', 'contract_contractLetter_template',
+                'contract_contractLetter_date', 'contract_contractLetter_digRef',
+                'contract_contractLetter_signedReturned', 'contract_contractLetter_signedReturnedDigRef',
+                'contract_conditionReport_template', 'contract_conditionReport_date',
+                'contract_conditionReport_digRef', 'contract_extension']
+    )
+
+    # Contract details
+    contract_contractDetails_requestPeriodFrom = schema.TextLine(
+        title=_(u'Request period from'),
+        required=False
+    )
+    dexteritytextindexer.searchable('contract_contractDetails_requestPeriodFrom')
+
+    contract_contractDetails_to = schema.TextLine(
+        title=_(u'to'),
+        required=False
+    )
+    dexteritytextindexer.searchable('contract_contractDetails_to')
+
+    contract_contractDetails_conditions = schema.TextLine(
+        title=_(u'Conditions'),
+        required=False
+    )
+    dexteritytextindexer.searchable('contract_contractDetails_conditions')
+
+    contract_contractDetails_notes = ListField(title=_(u'Notes'),
+        value_type=DictRow(title=_(u'Notes'), schema=INotes),
+        required=False)
+    form.widget(contract_contractDetails_notes=DataGridFieldFactory)
+    dexteritytextindexer.searchable('contract_contractDetails_notes')
+
+    # Contract letter
+    contract_contractLetter_template = schema.TextLine(
+        title=_(u'Conditions'),
+        required=False
+    )
+    dexteritytextindexer.searchable('contract_contractDetails_conditions')
+
+    contract_contractLetter_date = schema.TextLine(
+        title=_(u'Date'),
+        required=False
+    )
+    dexteritytextindexer.searchable('contract_contractLetter_date')
+
+    contract_contractLetter_digRef = schema.TextLine(
+        title=_(u'(Dig.) ref.'),
+        required=False
+    )
+    dexteritytextindexer.searchable('contract_contractLetter_digRef')
+
+    contract_contractLetter_signedReturned = schema.TextLine(
+        title=_(u'Signed & returned'),
+        required=False
+    )
+    dexteritytextindexer.searchable('contract_contractLetter_signedReturned')
+
+    contract_contractLetter_signedReturnedDigRef = schema.TextLine(
+        title=_(u'(Dig.) ref.'),
+        required=False
+    )
+    dexteritytextindexer.searchable('contract_contractLetter_signedReturnedDigRef')
+
+    # Condition report
+    contract_conditionReport_template = schema.TextLine(
+        title=_(u'Template'),
+        required=False
+    )
+    dexteritytextindexer.searchable('contract_conditionReport_template')
+
+    contract_conditionReport_date = schema.TextLine(
+        title=_(u'Date'),
+        required=False
+    )
+    dexteritytextindexer.searchable('contract_conditionReport_date')
+
+    contract_conditionReport_digRef = schema.TextLine(
+        title=_(u'(Dig.) ref.'),
+        required=False
+    )
+    dexteritytextindexer.searchable('contract_conditionReport_digRef')
+
+    # Extension
+    contract_extension = ListField(title=_(u'Extension'),
+        value_type=DictRow(title=_(u'Extension'), schema=IExtension),
+        required=False)
+    form.widget(contract_extension=BlockDataGridFieldFactory)
+    dexteritytextindexer.searchable('contract_extension')
 
 
+    # # # # # # # # # #
+    # Correspondence  #
+    # # # # # # # # # #
+
+    model.fieldset('correspondence', label=_(u'Correspondence'), 
+        fields=['correspondence_otherCorrespondence']
+    )
+
+    correspondence_otherCorrespondence = ListField(title=_(u'Correspondence'),
+        value_type=DictRow(title=_(u'Correspondence'), schema=ICorrespondence),
+        required=False)
+    form.widget(correspondence_otherCorrespondence=BlockDataGridFieldFactory)
+    dexteritytextindexer.searchable('correspondence_otherCorrespondence')
 
 
 

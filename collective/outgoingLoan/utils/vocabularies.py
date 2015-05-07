@@ -8,6 +8,16 @@ from collective.outgoingLoan import MessageFactory as _
 # # # # # # # # # # # # # #
 
 
+def _createReviewStatusVocabulary():
+    status = {
+        "authorised": _(u"authorised"),
+        "refused": _(u"refused"),
+    }
+
+    for key, name in status.items():
+        term = SimpleTerm(value=key, token=str(key), title=name)
+        yield term
+
 def _createPermissionResultVocabulary():
     results = {
         "granted": _(u"Granted"),
@@ -61,3 +71,4 @@ reason_vocabulary = SimpleVocabulary(list(_createReasonVocabulary()))
 template_vocabulary = SimpleVocabulary(list(_createTemplateVocabulary()))
 permission_result_vocabulary = SimpleVocabulary(list(_createPermissionResultVocabulary()))
 status_vocabulary = SimpleVocabulary(list(_createStatusVocabulary()))
+review_status_vocabulary = SimpleVocabulary(list(_createReviewStatusVocabulary()))

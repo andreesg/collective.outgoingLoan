@@ -15,6 +15,12 @@
               <h2 class="page-header" i18n:translate="" tal:condition="python: widget.field.__name__ == 'permissionOwner_requestTemplate'">Permission owner</h2>
               <h2 class="page-header" i18n:translate="" tal:condition="python: widget.field.__name__ == 'miscellaneous_insuranceValue'">Miscellaneous</h2>
 
+              <h2 class="page-header" i18n:translate="" tal:condition="python: widget.field.__name__ == 'request_newEndDate'">Request</h2>
+
+              <h2 class="page-header" i18n:translate="" tal:condition="python: widget.field.__name__ == 'review_status'">Review</h2>
+
+              <h2 class="page-header" i18n:translate="" tal:condition="python: widget.field.__name__ == 'result_template'">Result</h2>
+
 
                 <div class="label">
                     <label tal:attributes="for widget/id">
