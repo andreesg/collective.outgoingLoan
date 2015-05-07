@@ -1313,7 +1313,7 @@ msgstr "Sjabloon"
 
 #: ../outgoingLoan.py
 msgid "Dig. ref."
-msgstr "(Dig.)ref."
+msgstr "Dig. ref."
 
 #: ../outgoingLoan.py
 msgid "Objects"
