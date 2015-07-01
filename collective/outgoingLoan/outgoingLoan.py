@@ -35,6 +35,7 @@ from plone.app.widgets.dx import DatetimeFieldWidget
 #
 # DataGridFields dependencies
 #
+
 from collective.z3cform.datagridfield import DataGridFieldFactory, DictRow
 from collective.z3cform.datagridfield.blockdatagridfield import BlockDataGridFieldFactory
 
@@ -67,6 +68,12 @@ class IOutgoingLoan(form.Schema):
         title=_(u"Body"),
         required=False
     )
+
+    priref =  schema.TextLine(
+        title=_(u'priref'),
+        required=False
+    )
+    dexteritytextindexer.searchable('priref')
 
     # # # # # # # # # # #
     # Loan Request      # 
@@ -285,11 +292,9 @@ class IOutgoingLoan(form.Schema):
     form.widget(contract_extension=BlockDataGridFieldFactory)
     dexteritytextindexer.searchable('contract_extension')
 
-
     # # # # # # # # # #
     # Correspondence  #
     # # # # # # # # # #
-
     model.fieldset('correspondence', label=_(u'Correspondence'), 
         fields=['correspondence_otherCorrespondence']
     )
@@ -300,16 +305,24 @@ class IOutgoingLoan(form.Schema):
     form.widget(correspondence_otherCorrespondence=BlockDataGridFieldFactory)
     dexteritytextindexer.searchable('correspondence_otherCorrespondence')
 
+    # # # # # # # # #
+    # Transport     #
+    # # # # # # # # #
+    model.fieldset('transport', label=_(u'Transport'), 
+        fields=['transport_despatchDetails', 'transport_entryDetails']
+    )
 
+    transport_despatchDetails = ListField(title=_(u'Despatch details'),
+        value_type=DictRow(title=_(u'Despatch details'), schema=IDespatchDetails),
+        required=False)
+    form.widget(transport_despatchDetails=BlockDataGridFieldFactory)
+    dexteritytextindexer.searchable('transport_despatchDetails')
 
-
-
-
-
-
-
-
-
+    transport_entryDetails = ListField(title=_(u'Entry details'),
+        value_type=DictRow(title=_(u'Entry details'), schema=IEntryDetails),
+        required=False)
+    form.widget(transport_entryDetails=BlockDataGridFieldFactory)
+    dexteritytextindexer.searchable('transport_entryDetails')
 
 
 

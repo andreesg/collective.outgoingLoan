@@ -114,6 +114,14 @@ class ICorrespondence(Interface):
 	destination = schema.TextLine(title=_(u'Destination'), required=False)
 	subject = schema.TextLine(title=_(u'Subject'), required=False)
 
+class IDespatchDetails(Interface):
+    despatchNumber = schema.TextLine(title=_(u'Despatch number'), required=False)
+
+class IEntryDetails(Interface):
+    entryNumber = schema.TextLine(title=_(u'Entry number'), required=False)
+
+
+
 
 
 

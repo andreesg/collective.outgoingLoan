@@ -1481,6 +1481,25 @@ msgid "label_date"
 msgstr "Datum"
 
 
+#
+# Transport
+#
+
+#: ../outgoingLoan.py
+msgid "Despatch details"
+msgstr "Verzendgegevens"
+
+#: ../outgoingLoan.py
+msgid "Despatch number"
+msgstr "Verzendnummer"
+
+#: ../outgoingLoan.py
+msgid "Entry details"
+msgstr "Binnenkomstgegevens"
+
+#: ../outgoingLoan.py
+msgid "Entry number"
+msgstr "Binnenkomstnummer"
 
 
 

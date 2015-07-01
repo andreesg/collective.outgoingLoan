@@ -148,5 +148,24 @@
         </div>
     </div>
   </tal:correspondence>
-  
+
+  <tal:transport tal:condition='python: fieldset_text == "transport"'
+    tal:define='widgets group/widgets'>
+    <!-- Transport -->
+    <div class="row no-padding">
+        <h2 class="page-header" i18n:translate="">Despatch details</h2>
+
+        <div class="form-horizontal gridfield">
+          <tal:widget tal:replace="structure widgets/transport_despatchDetails/@@ploneform-render-widget"/>
+        </div>
+
+        <h2 class="page-header" i18n:translate="">Entry details</h2>
+
+        <div class="form-horizontal gridfield">
+          <tal:widget tal:replace="structure widgets/transport_entryDetails/@@ploneform-render-widget"/>
+        </div>
+
+    </div>
+  </tal:transport>
+
 </div>
