@@ -86,7 +86,7 @@ class IObjects(Interface):
         required=False
     )
 
-    reviewRequest_date = schema.TextLine(title=_(u'Date'), required=False)
+    reviewRequest_date = schema.TextLine(title=_(u'label_date', default=u'Date'), required=False)
     reviewRequest_digRef = schema.TextLine(title=_(u'Dig. ref.'), required=False)
 
     # Permission owner 
@@ -96,7 +96,7 @@ class IObjects(Interface):
         required=False
     )
 
-    permissionOwner_date = schema.TextLine(title=_(u'Date'), required=False)
+    permissionOwner_date = schema.TextLine(title=_(u'label_date', default=u'Date'), required=False)
     permissionOwner_digRef = schema.TextLine(title=_(u'Dig. ref.'), required=False)
     permissionOwner_permissionResult = schema.Choice(
         vocabulary=permission_result_vocabulary,
