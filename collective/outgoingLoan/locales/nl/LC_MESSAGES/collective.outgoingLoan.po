@@ -595,7 +595,7 @@ msgid "Owner"
 msgstr "Eigenaar"
 
 #: ../outgoingLoan.py
-msgid "From"
+msgid "label_from_vanaf"
 msgstr "Vanaf"
 
 #: ../outgoingLoan.py
@@ -1263,7 +1263,7 @@ msgstr "Aanvraagdetails"
 
 #: ../outgoingLoan.py
 msgid "Period from"
-msgstr "Period from"
+msgstr "Periode vanaf"
 
 #: ../outgoingLoan.py
 msgid "to"
@@ -1305,7 +1305,7 @@ msgstr "Vanaf"
 
 #: ../outgoingLoan.py
 msgid "Request confirmation"
-msgstr "Aanvraagbrief"
+msgstr "Aanvraagbevestiging"
 
 #: ../outgoingLoan.py
 msgid "Template"
@@ -1313,7 +1313,7 @@ msgstr "Sjabloon"
 
 #: ../outgoingLoan.py
 msgid "Dig. ref."
-msgstr "Dig. ref."
+msgstr "(Dig.) ref."
 
 #: ../outgoingLoan.py
 msgid "Objects"
@@ -1329,7 +1329,11 @@ msgstr "Buikleentitel"
 
 #: ../outgoingLoan.py
 msgid "Authoriser (internal)"
-msgstr "Autorisator (itern)"
+msgstr "Autorisator (intern)"
+
+#: ../outgoingLoan.py
+msgid "Authoriser"
+msgstr "Autorisator"
 
 #: ../outgoingLoan.py
 msgid "Authorisation date"
@@ -1413,11 +1417,11 @@ msgstr "Contractbrief"
 
 #: ../outgoingLoan.py
 msgid "Signed & returned"
-msgstr "Getekend"
+msgstr "Getekend & retour"
 
 #: ../outgoingLoan.py
 msgid "(Dig.) ref."
-msgstr "Dig. ref."
+msgstr "(Dig.) ref."
 
 #: ../outgoingLoan.py
 msgid "Condition report"
@@ -1503,17 +1507,62 @@ msgstr "Binnenkomstnummer"
 
 
 
+#: ../outgoingLoan.py
+msgid "under consideration"
+msgstr "in behandeling"
+
+#: ../outgoingLoan.py
+msgid "under discussion"
+msgstr "advies aangevraagd"
+
+#: ../outgoingLoan.py
+msgid "approved"
+msgstr "goedgekeurd"
+
+#: ../outgoingLoan.py
+msgid "refused"
+msgstr "geweigerd"
+
+#: ../outgoingLoan.py
+msgid "withdrawn"
+msgstr "ingetrokken"
+
+#: ../outgoingLoan.py
+msgid "despatched"
+msgstr "transport"
+
+#: ../outgoingLoan.py
+msgid "on loan"
+msgstr "uitgeleend"
+
+#: ../outgoingLoan.py
+msgid "renewed"
+msgstr "verlengd"
+
+#: ../outgoingLoan.py
+msgid "returned"
+msgstr "retour"
 
 
+#: ../outgoingLoan.py
+msgid "Granted"
+msgstr "verleend"
 
+#: ../outgoingLoan.py
+msgid "Refused"
+msgstr "geweigerd"
 
+#: ../outgoingLoan.py
+msgid "label_notes"
+msgstr "Opmerkingen"
 
+#: ../outgoingLoan.py
+msgid "Related loans"
+msgstr "Verwante bruiklenen"
 
-
-
-
-
-
+#: ../outgoingLoan.py
+msgid "Relation type"
+msgstr "Soort relatie"
 
 
 

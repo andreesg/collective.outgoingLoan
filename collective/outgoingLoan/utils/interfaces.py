@@ -7,6 +7,12 @@ from collective.outgoingLoan import MessageFactory as _
 from ..utils.vocabularies import *
 from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
 
+from z3c.relationfield.schema import RelationChoice
+from z3c.relationfield.schema import RelationList
+from collective.object.utils.widgets import SimpleRelatedItemsFieldWidget, AjaxSingleSelectFieldWidget
+from collective.object.utils.source import ObjPathSourceBinder
+from plone.directives import dexterity, form
+
 class ListField(schema.List):
     """We need to have a unique class for the field list so that we
     can apply a custom adapter."""
@@ -28,7 +34,7 @@ class IAdministrConcerned(Interface):
     name = schema.TextLine(title=_(u'Administr. concerned'), required=False)
 
 class INotes(Interface):
-    note = schema.TextLine(title=_(u'Notes'), required=False)
+    note = schema.Text(title=_(u'Notes'), required=False)
 
 class IDocumentationDocumentation(Interface):
     article = schema.TextLine(title=_(u'Article'), required=False)
@@ -39,7 +45,18 @@ class IDocumentationDocumentation(Interface):
     notes = schema.TextLine(title=_(u'Notes'), required=False)
 
 class IObjects(Interface):
-    objectNumber = schema.TextLine(title=_(u'Object number'), required=False)
+    objectNumber = RelationList(
+        title=_(u'Object number'),
+        default=[],
+        missing_value=[],
+        value_type=RelationChoice(
+            title=u"Related",
+            source=ObjPathSourceBinder(portal_type='Object')
+        ),
+        required=False
+    )
+    form.widget('objectNumber', SimpleRelatedItemsFieldWidget, vocabulary='collective.object.relateditems')
+
     loanTitle = schema.TextLine(title=_(u'Loan title'), required=False)
     status = schema.Choice(
         vocabulary=status_vocabulary,
@@ -47,8 +64,19 @@ class IObjects(Interface):
         required=False
     )
 
-    date = schema.TextLine(title=_(u'Date'), required=False)
-    authoriserInternal = schema.TextLine(title=_(u'Authoriser (internal)'), required=False)
+    date = schema.TextLine(title=_(u'label_date', default=u'Date'), required=False)
+    authoriserInternal = RelationList(
+        title=_(u'Authoriser (internal)'),
+        default=[],
+        missing_value=[],
+        value_type=RelationChoice(
+            title=u"Related",
+            source=ObjPathSourceBinder(portal_type='PersonOrInstitution')
+        ),
+        required=False
+    )
+    form.widget('authoriserInternal', SimpleRelatedItemsFieldWidget, vocabulary='collective.object.relateditems')
+
     authorisationDate = schema.TextLine(title=_(u'Authorisation date'), required=False)
 
     # Review request
@@ -79,14 +107,23 @@ class IObjects(Interface):
 
     # Miscellaneous
     miscellaneous_insuranceValue = schema.TextLine(title=_(u'Insurance Value'), required=False)
-    miscellaneous_currency = schema.TextLine(title=_(u'Currency'), required=False)
+    miscellaneous_currency = schema.List(
+        title=_(u'Currency'),
+        required=False,
+        value_type=schema.TextLine(),
+        missing_value=[],
+        default=[]
+    )
+    form.widget('miscellaneous_currency', AjaxSingleSelectFieldWidget, vocabulary="collective.object.currency")
+
+
     miscellaneous_conditions = schema.TextLine(title=_(u'Conditions'), required=False)
-    miscellaneous_notes = schema.TextLine(title=_(u'Notes'), required=False)
+    miscellaneous_notes = schema.Text(title=_(u'Notes'), required=False)
 
 ## Contract
 class IExtension(Interface):
     request_newEndDate = schema.TextLine(title=_(u'New end date'), required=False)
-    request_date = schema.TextLine(title=_(u'Date'), required=False)
+    request_date = schema.TextLine(title=_(u'label_date', default=u'Date'), required=False)
     request_digRef = schema.TextLine(title=_(u'(Dig.) ref.'), required=False)
 
     # Review
@@ -97,12 +134,27 @@ class IExtension(Interface):
     )
 
     review_date = schema.TextLine(title=_(u'label_date', default=u'Date'), required=False)
-    review_authoriser = schema.TextLine(title=_(u'Authoriser'), required=False)
+    review_authoriser = RelationList(
+        title=_(u'Authoriser'),
+        default=[],
+        missing_value=[],
+        value_type=RelationChoice(
+            title=u"Related",
+            source=ObjPathSourceBinder(portal_type='PersonOrInstitution')
+        ),
+        required=False
+    )
+    form.widget('review_authoriser', SimpleRelatedItemsFieldWidget, vocabulary='collective.object.relateditems')
+
     review_newEndDate = schema.TextLine(title=_(u'New end date'), required=False)
-    review_notes = schema.TextLine(title=_(u'Notes'), required=False)
+    review_notes = schema.Text(title=_(u'Notes'), required=False)
 
     # Result
-    result_template = schema.TextLine(title=_(u'Template'), required=False)
+    result_template = schema.Choice(
+        vocabulary=template_vocabulary,
+        title=_(u'Template'),
+        required=False
+    )
     result_date = schema.TextLine(title=_(u'label_date', default=u'Date'), required=False)
     result_digRef = schema.TextLine(title=_(u'(Dig.) ref.'), required=False)
 
@@ -118,8 +170,33 @@ class IDespatchDetails(Interface):
     despatchNumber = schema.TextLine(title=_(u'Despatch number'), required=False)
 
 class IEntryDetails(Interface):
-    entryNumber = schema.TextLine(title=_(u'Entry number'), required=False)
+    entryNumber = RelationList(
+        title=_(u'Entry number'),
+        default=[],
+        missing_value=[],
+        value_type=RelationChoice(
+            title=u"Related",
+            source=ObjPathSourceBinder(portal_type='ObjectEntry')
+        ),
+        required=False
+    )
+    form.widget('entryNumber', SimpleRelatedItemsFieldWidget, vocabulary='collective.object.relateditems')
 
+
+class IRelatedLoans(Interface):
+    loanNumber = RelationList(
+        title=_(u'Loan number'),
+        default=[],
+        missing_value=[],
+        value_type=RelationChoice(
+            title=u"Related",
+            source=ObjPathSourceBinder(portal_type='OutgoingLoan')
+        ),
+        required=False
+    )
+    form.widget('loanNumber', SimpleRelatedItemsFieldWidget, vocabulary='collective.object.relateditems')
+
+    relationType = schema.TextLine(title=_(u'Relation type'), required=False)
 
 
 
