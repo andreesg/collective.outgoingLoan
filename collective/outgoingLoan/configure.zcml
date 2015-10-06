@@ -87,6 +87,11 @@
       permission="zope.Public"
     />
 
+  <adapter for=".outgoingLoan.IOutgoingLoan"
+    provides=".outgoingLoan.INameFromLoanNumber"
+    factory=".outgoingLoan.NameFromLoanNumber"
+    />
+
   <!-- -*- extra stuff goes here -*- -->
 
   <z3c:widgetTemplate

@@ -69,12 +69,22 @@ from plone.directives import dexterity, form
 # # # # # # # # # # # # #
 # # # # # # # # # # # # #
 
-class IOutgoingLoan(form.Schema):
+from plone.app.content.interfaces import INameFromTitle
+class INameFromLoanNumber(INameFromTitle):
+    def title():
+        """Return a processed title"""
+
+class NameFromLoanNumber(object):
+    implements(INameFromLoanNumber)
     
-    text = RichText(
-        title=_(u"Body"),
-        required=False
-    )
+    def __init__(self, context):
+        self.context = context
+
+    @property
+    def title(self):
+        return self.context.loanRequest_general_loanNumber
+
+class IOutgoingLoan(form.Schema):
 
     priref =  schema.TextLine(
         title=_(u'priref'),
@@ -100,7 +110,7 @@ class IOutgoingLoan(form.Schema):
 
     loanRequest_general_loanNumber = schema.TextLine(
         title=_(u'Loan number'),
-        required=False
+        required=True
     )
     dexteritytextindexer.searchable('loanRequest_general_loanNumber')
 
