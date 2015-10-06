@@ -61,7 +61,9 @@ class IObjects(Interface):
     status = schema.Choice(
         vocabulary=status_vocabulary,
         title=_(u'Status'),
-        required=False
+        required=True,
+        default="No value",
+        missing_value=" "
     )
 
     date = schema.TextLine(title=_(u'label_date', default=u'Date'), required=False)
@@ -83,7 +85,16 @@ class IObjects(Interface):
     reviewRequest_template = schema.Choice(
         vocabulary=template_vocabulary,
         title=_(u'Template'),
-        required=False
+        required=True,
+        default="No value",
+        missing_value=" "
+    )
+
+    reviewRequest_templateCheck = schema.Bool(
+        title=_(u''),
+        required=False,
+        default=False,
+        missing_value=False
     )
 
     reviewRequest_date = schema.TextLine(title=_(u'label_date', default=u'Date'), required=False)
@@ -93,7 +104,16 @@ class IObjects(Interface):
     permissionOwner_requestTemplate = schema.Choice(
         vocabulary=template_vocabulary,
         title=_(u'Request template'),
-        required=False
+        required=True,
+        default="No value",
+        missing_value=" "
+    )
+
+    permissionOwner_requestTemplateCheck = schema.Bool(
+        title=_(u''),
+        required=False,
+        default=False,
+        missing_value=False
     )
 
     permissionOwner_date = schema.TextLine(title=_(u'label_date', default=u'Date'), required=False)
@@ -101,7 +121,9 @@ class IObjects(Interface):
     permissionOwner_permissionResult = schema.Choice(
         vocabulary=permission_result_vocabulary,
         title=_(u'Permission result'),
-        required=False
+        required=True,
+        default="No value",
+        missing_value=" "
     )
     permissionOwner_permissionDigRef = schema.TextLine(title=_(u'Dig. ref.'), required=False)
 
@@ -130,7 +152,9 @@ class IExtension(Interface):
     review_status = schema.Choice(
         vocabulary=review_status_vocabulary,
         title=_(u'Status'),
-        required=False
+        required=True,
+        default="No value",
+        missing_value=" "
     )
 
     review_date = schema.TextLine(title=_(u'label_date', default=u'Date'), required=False)
@@ -153,8 +177,17 @@ class IExtension(Interface):
     result_template = schema.Choice(
         vocabulary=template_vocabulary,
         title=_(u'Template'),
-        required=False
+        required=True,
+        default="No value",
+        missing_value=" "
     )
+    result_templateCheck = schema.Bool(
+        title=_(u''),
+        required=False,
+        default=False,
+        missing_value=False
+    )
+
     result_date = schema.TextLine(title=_(u'label_date', default=u'Date'), required=False)
     result_digRef = schema.TextLine(title=_(u'(Dig.) ref.'), required=False)
 

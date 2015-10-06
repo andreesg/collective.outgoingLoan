@@ -95,7 +95,7 @@ class IOutgoingLoan(form.Schema):
                 'loanRequest_requestDetails_reason', 'loanRequest_requestDetails_exhibition',
                 'loanRequest_requestLetter_date', 'loanRequest_requestLetter_digRef',
                 'loanRequest_requestConfirmation_template', 'loanRequest_requestConfirmation_date',
-                'loanRequest_requestConfirmation_digRef']
+                'loanRequest_requestConfirmation_digRef', 'loanRequest_requestConfirmation_templateCheck']
     )
 
     loanRequest_general_loanNumber = schema.TextLine(
@@ -163,7 +163,9 @@ class IOutgoingLoan(form.Schema):
     loanRequest_requestDetails_reason = schema.Choice(
         vocabulary=reason_vocabulary,
         title=_(u'Reason'),
-        required=False
+        required=True,
+        default="No value",
+        missing_value=" "
     )
     dexteritytextindexer.searchable('loanRequest_requestDetails_reason')
 
@@ -196,9 +198,19 @@ class IOutgoingLoan(form.Schema):
     loanRequest_requestConfirmation_template = schema.Choice(
         vocabulary=template_vocabulary,
         title=_(u'Template'),
-        required=False
+        required=True,
+        default="No value",
+        missing_value=" "
     )
     dexteritytextindexer.searchable('loanRequest_requestConfirmation_template')
+
+    loanRequest_requestConfirmation_templateCheck = schema.Bool(
+        title=_(u''),
+        required=False,
+        default=False,
+        missing_value=False
+    )
+    dexteritytextindexer.searchable('loanRequest_requestConfirmation_templateCheck')
 
     loanRequest_requestConfirmation_date = schema.TextLine(
         title=_(u'label_date', default=u'Date'),
@@ -238,7 +250,8 @@ class IOutgoingLoan(form.Schema):
                 'contract_contractLetter_date', 'contract_contractLetter_digRef',
                 'contract_contractLetter_signedReturned', 'contract_contractLetter_signedReturnedDigRef',
                 'contract_conditionReport_template', 'contract_conditionReport_date',
-                'contract_conditionReport_digRef', 'contract_extension']
+                'contract_conditionReport_digRef', 'contract_extension', 'contract_contractLetter_returned',
+                'contract_conditionReport_templateCheck', 'contract_contractLetter_templateCheck']
     )
 
     # Contract details
@@ -270,9 +283,18 @@ class IOutgoingLoan(form.Schema):
     contract_contractLetter_template = schema.Choice(
         vocabulary=template_vocabulary,
         title=_(u'Template'),
-        required=False
+        required=True,
+        default="No value",
+        missing_value=" "
     )
-    dexteritytextindexer.searchable('contract_contractDetails_conditions')
+    dexteritytextindexer.searchable('contract_contractLetter_template')
+
+    contract_contractLetter_templateCheck = schema.Bool(
+        title=_(u''),
+        required=False,
+        default=False,
+        missing_value=False
+    )
 
     contract_contractLetter_date = schema.TextLine(
         title=_(u'label_date', default=u'Date'),
@@ -292,6 +314,13 @@ class IOutgoingLoan(form.Schema):
     )
     dexteritytextindexer.searchable('contract_contractLetter_signedReturned')
 
+    contract_contractLetter_returned = schema.Bool(
+        title=_(u''),
+        required=False,
+        default=False,
+        missing_value=False
+    )
+
     contract_contractLetter_signedReturnedDigRef = schema.TextLine(
         title=_(u'(Dig.) ref.'),
         required=False
@@ -302,9 +331,19 @@ class IOutgoingLoan(form.Schema):
     contract_conditionReport_template = schema.Choice(
         vocabulary=template_vocabulary,
         title=_(u'Template'),
-        required=False
+        required=True,
+        default="No value",
+        missing_value=" "
     )
     dexteritytextindexer.searchable('contract_conditionReport_template')
+
+    contract_conditionReport_templateCheck = schema.Bool(
+        title=_(u''),
+        required=False,
+        default=False,
+        missing_value=False
+    )
+    dexteritytextindexer.searchable('contract_conditionReport_templateCheck')
 
     contract_conditionReport_date = schema.TextLine(
         title=_(u'label_date', default=u'Date'),

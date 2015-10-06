@@ -14,9 +14,13 @@ def _createReviewStatusVocabulary():
         "refused": _(u"refused"),
     }
 
+    terms = []
+    terms.append(SimpleTerm(value="No value", token=str("No value"), title=_(u" ")))
     for key, name in status.items():
         term = SimpleTerm(value=key, token=str(key), title=name)
-        yield term
+        terms.append(term)
+    
+    return terms
 
 def _createPermissionResultVocabulary():
     results = {
@@ -24,9 +28,13 @@ def _createPermissionResultVocabulary():
         "refused": _(u"Refused")
     }
 
+    terms = []
+    terms.append(SimpleTerm(value="No value", token=str("No value"), title=_(u" ")))
     for key, name in results.items():
         term = SimpleTerm(value=key, token=str(key), title=name)
-        yield term
+        terms.append(term)
+    
+    return terms
 
 def _createStatusVocabulary():
     status = {
@@ -41,9 +49,13 @@ def _createStatusVocabulary():
         "returned": _(u"returned"),
     }
 
+    terms = []
+    terms.append(SimpleTerm(value="No value", token=str("No value"), title=_(u" ")))
     for key, name in status.items():
         term = SimpleTerm(value=key, token=str(key), title=name)
-        yield term
+        terms.append(term)
+    
+    return terms
 
 def _createReasonVocabulary():
     reasons = {
@@ -52,9 +64,13 @@ def _createReasonVocabulary():
         "conservation/restoration": _(u"conservation/restoration")
     }
 
+    terms = []
+    terms.append(SimpleTerm(value="No value", token=str("No value"), title=_(u" ")))
     for key, name in reasons.items():
         term = SimpleTerm(value=key, token=str(key), title=name)
-        yield term
+        terms.append(term)
+    
+    return terms
 
 def _createTemplateVocabulary():
     templates = {
@@ -63,9 +79,13 @@ def _createTemplateVocabulary():
         "German": _(u"German")
     }
 
+    terms = []
+    terms.append(SimpleTerm(value="No value", token=str("No value"), title=_(u" ")))
     for key, name in templates.items():
         term = SimpleTerm(value=key, token=str(key), title=name)
-        yield term
+        terms.append(term)
+    
+    return terms
 
 reason_vocabulary = SimpleVocabulary(list(_createReasonVocabulary()))
 template_vocabulary = SimpleVocabulary(list(_createTemplateVocabulary()))
