@@ -82,7 +82,7 @@ class NameFromLoanNumber(object):
 
     @property
     def title(self):
-        return self.context.loanRequest_general_loanNumber
+        return self.context.title
 
 class IOutgoingLoan(form.Schema):
 
@@ -98,7 +98,7 @@ class IOutgoingLoan(form.Schema):
 
     # General
     model.fieldset('loan_request', label=_(u'Loan Request'), 
-        fields=['loanRequest_general_loanNumber',
+        fields=['title',
                 'loanRequest_general_requester', 'loanRequest_general_contact',
                 'loanRequest_internalCoordination_coordinator', 'loanRequest_internalCoordination_administrConcerned',
                 'loanRequest_requestDetails_periodFrom', 'loanRequest_requestDetails_to',
@@ -108,11 +108,11 @@ class IOutgoingLoan(form.Schema):
                 'loanRequest_requestConfirmation_digRef', 'loanRequest_requestConfirmation_templateCheck']
     )
 
-    loanRequest_general_loanNumber = schema.TextLine(
+    title = schema.TextLine(
         title=_(u'Loan number'),
         required=True
     )
-    dexteritytextindexer.searchable('loanRequest_general_loanNumber')
+    dexteritytextindexer.searchable('title')
 
     loanRequest_general_requester = RelationList(
         title=_(u'Requester'),

@@ -8,7 +8,7 @@
         <h2 class="page-header" i18n:translate="">Algemeen</h2>
 
         <div class="form-horizontal">
-          <tal:widget tal:replace="structure widgets/loanRequest_general_loanNumber/@@ploneform-render-widget"/>
+          <tal:widget tal:replace="structure widgets/title/@@ploneform-render-widget"/>
           <tal:widget tal:replace="structure widgets/loanRequest_general_requester/@@ploneform-render-widget"/>
           <tal:widget tal:replace="structure widgets/loanRequest_general_contact/@@ploneform-render-widget"/>
         </div>
@@ -74,7 +74,7 @@
         <h2 class="page-header" i18n:translate="">General</h2>
 
         <div class="form-horizontal">
-          <tal:widget tal:replace="structure widgets/loanRequest_general_loanNumber/@@ploneform-render-widget"/>
+          <tal:widget tal:replace="structure widgets/title/@@ploneform-render-widget"/>
           <tal:widget tal:replace="structure widgets/loanRequest_general_requester/@@ploneform-render-widget"/>
           <tal:widget tal:replace="structure widgets/loanRequest_general_contact/@@ploneform-render-widget"/>
         </div>
