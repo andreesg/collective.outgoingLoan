@@ -59,7 +59,7 @@ from .utils.views import *
 
 from z3c.relationfield.schema import RelationChoice
 from z3c.relationfield.schema import RelationList
-from collective.object.utils.widgets import SimpleRelatedItemsFieldWidget, AjaxSingleSelectFieldWidget
+from collective.object.utils.widgets import SimpleRelatedItemsFieldWidget, AjaxSingleSelectFieldWidget, ExtendedRelatedItemsFieldWidget
 from collective.object.utils.source import ObjPathSourceBinder
 from plone.directives import dexterity, form
 
@@ -378,7 +378,7 @@ class IOutgoingLoan(form.Schema):
     # Transport     #
     # # # # # # # # #
     model.fieldset('transport', label=_(u'Transport'), 
-        fields=['transport_despatchDetails', 'transport_entryDetails']
+        fields=['transport_despatchDetails', 'transport_entrydetails']
     )
 
     transport_despatchDetails = ListField(title=_(u'Despatch details'),
@@ -387,11 +387,17 @@ class IOutgoingLoan(form.Schema):
     form.widget(transport_despatchDetails=BlockDataGridFieldFactory)
     dexteritytextindexer.searchable('transport_despatchDetails')
 
-    transport_entryDetails = ListField(title=_(u'Entry details'),
-        value_type=DictRow(title=_(u'Entry details'), schema=IEntryDetails),
-        required=False)
-    form.widget(transport_entryDetails=BlockDataGridFieldFactory)
-    dexteritytextindexer.searchable('transport_entryDetails')
+    transport_entrydetails = RelationList(
+        title=_(u'Entry number'),
+        default=[],
+        missing_value=[],
+        value_type=RelationChoice(
+            title=u"Related",
+            source=ObjPathSourceBinder(portal_type='ObjectEntry')
+        ),
+        required=False
+    )
+    form.widget('transport_entrydetails', ExtendedRelatedItemsFieldWidget, vocabulary='collective.object.relateditems')
 
     # # # # # # # # # #
     # Correspondence  #
