@@ -71,13 +71,13 @@
   </class>
 
   <!-- Custom plone form widget -->
-  <browser:page
+  <!--<browser:page
     name="ploneform-render-widget"
     for=".outgoingLoan.IFormWidget"
     class="plone.app.z3cform.templates.RenderWidget"
     permission="zope.Public"
     template="outgoingLoan_templates/widget.pt"
-  />
+  />-->
 
   <!-- Custom Add and Edit form macro -->
   <browser:page
@@ -94,7 +94,7 @@
 
   <!-- -*- extra stuff goes here -*- -->
 
-  <z3c:widgetTemplate
+  <!--<z3c:widgetTemplate
         mode="input"
         widget="collective.z3cform.datagridfield.blockdatagridfield.BlockDataGridField"
         layer="plone.app.z3cform.interfaces.IPloneFormLayer"
@@ -106,6 +106,6 @@
       widget="collective.z3cform.datagridfield.blockdatagridfield.BlockDataGridFieldObject"
       layer="plone.app.z3cform.interfaces.IPloneFormLayer"
       template="outgoingLoan_templates/datagridfieldobject_input_block.pt"
-      />
+      />-->
 
 </configure>

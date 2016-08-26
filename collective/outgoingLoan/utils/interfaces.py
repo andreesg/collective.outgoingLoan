@@ -51,7 +51,7 @@ class IObjects(Interface):
         missing_value=[],
         value_type=RelationChoice(
             title=u"Related",
-            source=ObjPathSourceBinder(portal_type='Object')
+            vocabulary='collective.object.relateditems'
         ),
         required=False
     )
@@ -73,7 +73,7 @@ class IObjects(Interface):
         missing_value=[],
         value_type=RelationChoice(
             title=u"Related",
-            source=ObjPathSourceBinder(portal_type='PersonOrInstitution')
+            vocabulary='collective.object.relateditems'
         ),
         required=False
     )
@@ -91,7 +91,7 @@ class IObjects(Interface):
     )
 
     reviewRequest_templateCheck = schema.Bool(
-        title=_(u''),
+        title=_(u'Template check'),
         required=False,
         default=False,
         missing_value=False
@@ -110,7 +110,7 @@ class IObjects(Interface):
     )
 
     permissionOwner_requestTemplateCheck = schema.Bool(
-        title=_(u''),
+        title=_(u'Template check'),
         required=False,
         default=False,
         missing_value=False
@@ -164,7 +164,7 @@ class IExtension(Interface):
         missing_value=[],
         value_type=RelationChoice(
             title=u"Related",
-            source=ObjPathSourceBinder(portal_type='PersonOrInstitution')
+            vocabulary='collective.object.relateditems'
         ),
         required=False
     )
@@ -182,7 +182,7 @@ class IExtension(Interface):
         missing_value=" "
     )
     result_templateCheck = schema.Bool(
-        title=_(u''),
+        title=_(u'Template check'),
         required=False,
         default=False,
         missing_value=False
@@ -209,7 +209,7 @@ class IEntryDetails(Interface):
         missing_value=[],
         value_type=RelationChoice(
             title=u"Related",
-            source=ObjPathSourceBinder(portal_type='ObjectEntry')
+            vocabulary='collective.object.relateditems'
         ),
         required=False
     )
@@ -223,13 +223,13 @@ class IRelatedLoans(Interface):
         missing_value=[],
         value_type=RelationChoice(
             title=u"Related",
-            source=ObjPathSourceBinder(portal_type='OutgoingLoan')
+            vocabulary='collective.object.relateditems'
         ),
         required=False
     )
     form.widget('loanNumber', SimpleRelatedItemsFieldWidget, vocabulary='collective.object.relateditems')
-
     relationType = schema.TextLine(title=_(u'Relation type'), required=False)
+    
 
 
 
